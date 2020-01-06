@@ -3,6 +3,7 @@ from PIL import Image, ImageFilter
 from collections import defaultdict
 from time import sleep
 
+
 def show_image(img):
     img.show()
     sleep(0.2)
