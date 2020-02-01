@@ -41,16 +41,16 @@ def login(browser, wait):
     # else:
     #     conf_file = "username.json"
 
-    logger.debug("从配置文件中获取用户名和密码...")
-    with open(conf_file) as config:
-        usr_pwd = json.load(config)
-    usr_name = usr_pwd["username"]
-    password = usr_pwd["password"]
-    usr_name = usr_pwd["usernameL"]
-    password = usr_pwd["passwordL"]
+    # logger.debug("从配置文件中获取用户名和密码...")
+    # with open(conf_file) as config:
+    #     usr_pwd = json.load(config)
+    # usr_name = usr_pwd["username"]
+    # password = usr_pwd["password"]
+    # usr_name = usr_pwd["usernameL"]
+    # password = usr_pwd["passwordL"]
 
-    # usr_name = os.environ.get("USERNAME")
-    # password = os.environ.get("PASSWORD")
+    usr_name = os.environ.get("USERNAME")
+    password = os.environ.get("PASSWORD")
 
     logger.debug("开始登录一亩三分地, 账号:" + usr_name)
 
@@ -206,23 +206,24 @@ def fill_captcha(browser, wait):
         captcha_img_element = browser.find_element_by_xpath("//span[text()='输入下图中的字符']//img")
         # src = captcha_img_element.get_attribute("src")
 
-        loc = captcha_img_element.location
-        size = captcha_img_element.size
-
-        left, right = loc['x'], loc['x'] + size['width']
-        top, bottom = loc['y'], loc['y'] + size['height']
-
         browser.save_screenshot('screenshot.png')
         scrsht = Image.open("screenshot.png")
-        captcha_img = scrsht.crop((left, top, right, bottom))
-        captcha_img.save("captcha.png")
 
-        # NOTE: test
-        # captcha_img = cap_input_element.screenshot_as_png
-        # with open ("/captcha.png", "wb") as f:
-        #     f.write(captcha_img_element.screenshot_as_png)
 
-        # 解码验证码，转化为字符串
+        # * capture img
+        # loc = captcha_img_element.location
+        # size = captcha_img_element.size
+        # left, right = loc['x'], loc['x'] + size['width']
+        # top, bottom = loc['y'], loc['y'] + size['height']
+        # captcha_img = scrsht.crop((left, top, right, bottom))
+        # captcha_img.save("captcha.png")
+
+        # * test
+        captcha_img = cap_input_element.screenshot_as_png
+        with open ("captcha.png", "wb") as f:
+            f.write(captcha_img_element.screenshot_as_png)
+
+        # * image -> captcha
         captcha_text = captcha.captcha_to_string(Image.open("captcha.png"))
         logger.debug(f"图形验证码破解结果: {captcha_text}")
 
@@ -267,7 +268,10 @@ def start():
         except selexception.TimeoutException:
             msg = "登陆失败, 可能是用户名密码不正确导致"
             logger.debug(msg)
-            logger.info(msg)
+            break
+        except:
+            msg = "Unexpected issue"
+            logger.debug(msg)
             break
 
         # 每日签到
