@@ -193,6 +193,9 @@ def fill_captcha(browser, wait):
 
     while res_text == "" or res_text != correct_res: # 验证码解码错误
 
+        if trial >= 20:
+            return
+
         logger.debug(f"开始破解图形验证码，第{trial}次尝试...")
         # 重新获取验证码
 

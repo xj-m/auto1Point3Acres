@@ -14,9 +14,16 @@
             "description": "Chrome path",
             "value": "/app/.apt/usr/bin/google-chrome"
         },
+        "LD_LIBRARY_PATH":{
+            "description": "path",
+            "value": "/app/.apt/usr/share/tesseract-ocr/4.00/tessdata"
+        },
+        "TESSDATA_PREFIX":{
+            "description": "prefix",
+            "value": "./.apt/usr/share/tesseract-ocr/4.00/tessdata"
+        },
         "PASSWORD": {
             "description": "1point3acres password, update the value with your password"
-
         },
         "USERNAME": {
             "description": "1point3acres username, update the value with your username"
@@ -26,7 +33,7 @@
             "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
         },
         {
-            "url": "https://github.com/matteotiziano/heroku-buildpack-tesseract"
+            "url": "https://github.com/pathwaysmedical/heroku-buildpack-tesseract"
         },
         {
             "url": "https://github.com/heroku/heroku-buildpack-python"
