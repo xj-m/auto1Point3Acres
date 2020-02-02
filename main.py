@@ -36,21 +36,21 @@ wait = WebDriverWait(browser, 3)
 
 def login(browser, wait):
     # * read user name and password from local json
-    # if platform.system() == "Darwin" and hex(uuid.getnode()) == "0x3035add3a8d0":
-    #     conf_file = "dev-username.json"
-    # else:
-    #     conf_file = "username.json"
+    if platform.system() == "Darwin" and hex(uuid.getnode()) == "0x3035add3a8d0":
+        conf_file = "dev-username.json"
+    else:
+        conf_file = "username.json"
 
-    # logger.debug("从配置文件中获取用户名和密码...")
-    # with open(conf_file) as config:
-    #     usr_pwd = json.load(config)
-    # usr_name = usr_pwd["username"]
-    # password = usr_pwd["password"]
-    # usr_name = usr_pwd["usernameL"]
-    # password = usr_pwd["passwordL"]
+    logger.debug("从配置文件中获取用户名和密码...")
+    with open(conf_file) as config:
+        usr_pwd = json.load(config)
+    usr_name = usr_pwd["username"]
+    password = usr_pwd["password"]
+    usr_name = usr_pwd["usernameL"]
+    password = usr_pwd["passwordL"]
 
-    usr_name = os.environ.get("USERNAME")
-    password = os.environ.get("PASSWORD")
+    # usr_name = os.environ.get("USERNAME")
+    # password = os.environ.get("PASSWORD")
 
     logger.debug("开始登录一亩三分地, 账号:" + usr_name)
 
