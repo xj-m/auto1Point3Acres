@@ -2,19 +2,19 @@
 
 ## Summary
 
-An automated script to get the daily reward in 1point3auto (一亩三分地). The deployment is based on Heroku.
+An automated script to get the daily reward in 1point3auto (一亩三分地), utilizing pytesseract to creak the captcha, deployed on Heroku
 
 ## Deployment
 
 ### Step1: create your Heroku app
 
-Click the **Deploy to Heroku** Button below, this will take you to a website that helps you set up an Heroku app, (you need to create an account first if you don't have one)
+Click the `Deploy to Heroku` Button below, this will take you to a website that helps you set up an Heroku app, (you need to create an account first if you don't have one)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ### Step2: set up variables
 
-Update the `USERNAME` and `PASSWORD` values with your 1point3acres username and password.
+Input the `USERNAME` and `PASSWORD` values with your 1point3acres username and password.
 
 <img src="https://i.imgur.com/jV8a7fQ.png" width="600px">
 
