@@ -6,54 +6,17 @@ An automated script to get the daily reward in 1point3auto (一亩三分地). Th
 
 ## Deployment
 
-### Step1: create your Heroku app
+### step1: setup `username.json`
 
-Click the **Deploy to Heroku** Button below, this will take you to a website that helps you set up an Heroku app, (you need to create an account first if you don't have one)
+Input your account username and password into `username.json`
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+### step2: run command
 
-### Step2: set up variables
+First install required packages:
+1. Make sure your python environment meet the `requirement`, you can in case run `pip3 install -r requirements.txt`
+2. You need `chromedriver`
 
-Update the `USERNAME` and `PASSWORD` values with your 1point3acres username and password.
-
-<img src="https://i.imgur.com/jV8a7fQ.png" width="600px">
-
-### Step3: deploy and build
-
-Hit **Deploy App** and wait until the build is finished. Click `Manage App` redirects to the main page.
-
-<img src="https://i.imgur.com/UnHlu8Q.png" width="600px">
-
-### Step4: set up schedules
-
-- Click `Resources` > `Heroku Scheduler` > `Create Job`
-- Choose `Every day at ...` with anytime you like
-- Copy and paste `python main.py` in the command input below
-- Save job
-
-<img src="https://i.imgur.com/hj6adwI.png">
-
-### All set
-
-Now your Heroku app will follow the schedule you just set and execute the script that gets all daily reward!
-
-## Manually run the script(optional)
-
-### First way: using Heroku console
-
-1. Go to your Heroku app page. (Can be accessed if you log in to your Heroku account).
-2. At top right of the page, click `More` > `Run console`.
-3. Now you should have console opened, input `bash` and click `Run`.
-4. Wait until the console logged, then run the command `python main.py`.
-
-### Second way: run the Heroku app locally
-
-**NOTE**: Before using any command, make sure you have installed and login to Heroku, the instruction can be found in [install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-
-```code
-Heroku login
-Heroku run main --app <YOUR_APP_NAME>
-```
+Then run `python main.py`
 
 ## Credit
 
