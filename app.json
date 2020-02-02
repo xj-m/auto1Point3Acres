@@ -14,11 +14,11 @@
             "description": "Chrome path",
             "value": "/app/.apt/usr/bin/google-chrome"
         },
-        "LD_LIBRARY_PATH":{
+        "LD_LIBRARY_PATH": {
             "description": "path",
             "value": "/app/.apt/usr/share/tesseract-ocr/4.00/tessdata"
         },
-        "TESSDATA_PREFIX":{
+        "TESSDATA_PREFIX": {
             "description": "prefix",
             "value": "./.apt/usr/share/tesseract-ocr/4.00/tessdata"
         },
@@ -37,6 +37,9 @@
         },
         {
             "url": "https://github.com/heroku/heroku-buildpack-python"
+        },
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
         }
     ],
     "addons": [
