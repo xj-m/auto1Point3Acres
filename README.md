@@ -2,7 +2,7 @@
 
 ## Summary
 
-An automated script to get the daily reward in 1point3auto (一亩三分地), utilizing pytesseract to creak the captcha, deployed on Heroku
+An automated script to get the daily reward in 1point3auto (一亩三分地), utilizing pytesseract to crack the captcha, deployed on Heroku
 
 ## Deployment
 
