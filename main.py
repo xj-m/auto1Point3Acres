@@ -46,8 +46,6 @@ def login(browser, wait):
         usr_pwd = json.load(config)
     usr_name = usr_pwd["username"]
     password = usr_pwd["password"]
-    usr_name = usr_pwd["usernameL"]
-    password = usr_pwd["passwordL"]
 
     # usr_name = os.environ.get("USERNAME")
     # password = os.environ.get("PASSWORD")
@@ -65,6 +63,7 @@ def login(browser, wait):
     login_btn_element.click()
 
     wait.until(ec.presence_of_element_located((By.XPATH, '//a[text()="退出"]')))
+    # wait.until(ec.presence_of_element_located((By.XPATH, '//*[@id="um"]/p[2]/a[3]')))
 
     logger.debug("登录成功!")
     passed[0] = True
